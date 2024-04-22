@@ -1,4 +1,5 @@
 import React from 'react'
+import { UserContext } from '../context/UserContext';
 import { Link } from 'react-router-dom'
 import foto from '../assets/foto-perfil.png'
 import perfil from '../assets/foto-circular.png'
@@ -6,6 +7,9 @@ import perfil from '../assets/foto-circular.png'
 // import puntos from '../assets/tres-puntos.png'
  
 const ProfileDetails = () => {
+ const { loggedInUser } = React.useContext(UserContext)
+ const userName = loggedInUser ? loggedInUser.nombre : 'Invitado';
+ let filter = ["Photos", "Videos", "Album", "Tag"]
   return (
     <>
       <Link to="/" className=""></Link>
@@ -21,7 +25,7 @@ const ProfileDetails = () => {
         </div>
         <div className="mx-auto max-w-4xl flex flex-col items-center justify-center">
           <img src={perfil} alt="fotoCircular" className="mt-[-1.5rem]" />
-          <span className="font-bold ">Jennie Kim</span>
+          <span className="font-bold ">{userName}</span>
           <span>J. Hello Guys</span>
           <span>Follow me and like post</span>
         </div>
@@ -39,12 +43,16 @@ const ProfileDetails = () => {
           Messages
         </button>
       </div>
-      <div className="flex justify-center border my-3">
-        <div className="w-[40rem] flex justify-evenly">
-          <span className="font-bold">Photos</span>
+      <div className="flex justify-center mx-auto max-w-4xl border my-3">
+        
+        <div className="border w-[40rem] flex justify-evenly">
+        {filter.map((filte) => (
+          <span onClick={() => console.log(filte)} className="font-bold">{filte}</span>
+        ))}
+          {/* <span className="font-bold">Photos</span>
           <span className="font-bold">Videos</span>
           <span className="font-bold">Album</span>
-          <span className="font-bold">Tag</span>
+          <span className="font-bold">Tag</span> */}
         </div>
       </div>
       <div className="mx-auto max-w-4xl border grid grid-cols-3 gap-4 md:grid-cols-2 sm:grid-cols-2 max-lg:grid-cols-3">
