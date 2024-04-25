@@ -8,6 +8,9 @@ import perfil from '../assets/foto-circular.png'
 const ProfileDetails = () => {
  const { loggedInUser } = React.useContext(UserContext)
  const userName = loggedInUser ? loggedInUser.nombre : 'Invitado';
+ const userImage = loggedInUser ? loggedInUser.imagenPerfil : 'Invitado';
+ const userMessage = loggedInUser ? loggedInUser.mensaje : 'Invitado';
+ const userFollowers = loggedInUser ? loggedInUser.seguidas : 'Invitado';
  let filter = ["Photos", "Videos", "Album", "Tag"]
   return (
     <>
@@ -18,14 +21,14 @@ const ProfileDetails = () => {
       </div>
       <div className="mx-auto max-w-4xl border flex justify-center items-center bg-gradient-to-r from-slate-50 via-red-50 to-red-100">
         <div className="mt-10">
-          <span className="font-bold">10.7</span>
+          <span className="font-bold">{userFollowers}</span>
           <span className="font-bold ml-1">M</span>
           <div>Followers</div>
         </div>
         <div className="mx-auto max-w-4xl flex flex-col items-center justify-center">
-          <img src={perfil} alt="fotoCircular" className="mt-[-1.5rem]" />
+          <img src={userImage} alt="fotoCircular" className="w-20 h-20 mt-[-1.5rem] rounded-full border-2 border-t-fuchsia-200 border-r-fuchsia-300 border-b-orange-200 border-l-fuchsia-300 overflow-hidden" />
           <span className="font-bold ">{userName}</span>
-          <span>J. Hello Guys</span>
+          <span>{userMessage}</span>
           <span>Follow me and like post</span>
         </div>
         <div className="mt-10">
