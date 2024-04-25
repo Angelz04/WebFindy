@@ -1,19 +1,17 @@
 
-import React, { useContext } from 'react';
-import { PostContext } from './PostContext/PostContext'; // Importa el contexto
+import  { useContext } from 'react';
+import { PostContext } from '../context/PostContext'; 
 
 const Details = () => {
-  const { state } = useContext(PostContext); // Usa el contexto para acceder al estado global
+  const { state } = useContext(PostContext); 
 
-  // Extraemos la publicación seleccionada del estado
   const { selectedPost } = state;
 
-  // Verificamos si hay una publicación seleccionada
+
   if (!selectedPost) {
     return <div>No hay detalles de la publicación disponibles</div>;
   }
 
-  // Extraemos los detalles de la publicación
   const { id, categoria, imagenPost } = selectedPost;
 
   return (
