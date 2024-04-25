@@ -3,9 +3,8 @@ import { UserContext } from '../context/UserContext';
 import { Link } from 'react-router-dom'
 import foto from '../assets/foto-perfil.png'
 import perfil from '../assets/foto-circular.png'
-// import vector from '../assets/vector.png'
-// import puntos from '../assets/tres-puntos.png'
- 
+
+
 const ProfileDetails = () => {
  const { loggedInUser } = React.useContext(UserContext)
  const userName = loggedInUser ? loggedInUser.nombre : 'Invitado';
@@ -17,7 +16,7 @@ const ProfileDetails = () => {
         {/* <div img src={vector} alt="VectorIzq"></div> */}
         <img src={foto} alt="fotoperfil" />
       </div>
-      <div className="mx-auto max-w-4xl border flex justify-center items-center">
+      <div className="mx-auto max-w-4xl border flex justify-center items-center bg-gradient-to-r from-slate-50 via-red-50 to-red-100">
         <div className="mt-10">
           <span className="font-bold">10.7</span>
           <span className="font-bold ml-1">M</span>
@@ -45,7 +44,7 @@ const ProfileDetails = () => {
       </div>
       <div className="flex justify-center mx-auto max-w-4xl border my-3">
         
-        <div className="border w-[40rem] flex justify-evenly">
+        <div className="w-[40rem] flex justify-evenly">
         {filter.map((filte) => (
           <span onClick={() => console.log(filte)} className="font-bold">{filte}</span>
         ))}
@@ -58,27 +57,27 @@ const ProfileDetails = () => {
       <div className="mx-auto max-w-4xl border grid grid-cols-3 gap-4 md:grid-cols-2 sm:grid-cols-2 max-lg:grid-cols-3">
         <img
           src={foto}
-          alt="fotoperfil"
+          alt="galeria de imagenes"
           className="rounded-lg h-48 object-cover"
         />
         <img
           src={foto}
-          alt="fotoperfil"
+          alt="galeria de imagenes"
           className="rounded-lg h-56 object-cover"
         />
         <img
           src={foto}
-          alt="fotoperfil"
+          alt="galeria de imagenes"
           className="rounded-lg h-[198px] object-cover"
         />
         <img
           src={foto}
-          alt="fotoperfil"
+          alt="galeria de imagenes"
           className="rounded-lg h-[204px] object-cover "
         />
         <img
           src={foto}
-          alt="fotoperfil"
+          alt="galeria de imagenes"
           className="rounded-lg h-[216px] object-cover"
         />
         <img

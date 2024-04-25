@@ -20,7 +20,7 @@ console.log(loggedInUser);
   }, [loggedInUser]);
 
   return (
-    <UserContext.Provider value={{ loggedInUser, setLoggedInUser, registro }}>
+    <UserContext.Provider value={{ loggedInUser, setLoggedInUser, registro}}>
       {children}
     </UserContext.Provider>
   );
